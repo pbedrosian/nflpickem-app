@@ -5,6 +5,7 @@
     text-align: center;
     display:inline-block;
     vertical-align:top;
+    display: inline;
   }
   
   .topnav {
@@ -35,7 +36,7 @@
     
     /* Add a color to the active/current link */
     .topnav a.active {
-      background-color: #bd4b00;
+      background-color: #D61E26;
       color: white;
     }
   
@@ -51,6 +52,10 @@
     }
   
     .logout:hover {
-      background-color: #e74412; 
+      background-color: #D61E26; 
+      color: white;
+    }
+
+    .nav-color {
       color: white;
     }
