@@ -1,0 +1,23 @@
+<%= form_for @pick, url: user_picks_path do |f| %>
+    <% if @pick.errors.any? %>
+        <div id= "error_explanation">
+            <% @pick.errors.full_messages.each do |message| %>
+                <em style="color:red;font-size:12px;" > <%= message %> </em>
+            <% end %>
+        </div>
+    <% end %>
+
+    <div class="field">
+    <label> Team </label><br>
+    <%= f.collection_select(:team_id, current_user.remaining_teams, :id, :name ) %>
+    </div>
+
+    <div class="field">
+    <%= f.label :buy_in %><br>
+    <%= f.check_box :buy_in, { checked: false }, true, false  %>
+    </div>
+
+    <div class="actions">
+    <%= f.submit %>
+    </div>
+<% end %>
