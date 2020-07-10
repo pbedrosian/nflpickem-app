@@ -7,9 +7,31 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag   "navigation" %>
+
   </head>
 
   <body>
+    <div class="topnav">
+    <div id="nav-container">
+      <img src="https://i.ibb.co/NYcYrzW/i.png" class="logo" style="float: left">
+      <%= link_to 'Home', root_path, class: 'active'%>
+      <%= link_to 'Weekly Schedule', schedule_path%> 
+      <%= link_to 'League', league_path%>
+      <% if user_signed_in? %>
+        <%= link_to 'Profile', profile_path %>
+      <% end%>
+        <div style="float: right; margin-right: 15px">
+            <% if user_signed_in? %>
+              <p> <%= link_to "logout", destroy_user_session_path, method: :delete%> </p>
+            <% else %>
+              <%= link_to 'Log In', new_user_session_path%> 
+              <%= link_to 'Sign Up', new_user_registration_path %> 
+            <% end %>
+        </div>
+      </div>
+  </div>
     <% render 'layouts/alerts' %>
     <%= yield %>
   </body>
