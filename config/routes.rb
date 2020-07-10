@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root 'users#home'
+  devise_for :users, path: :accounts
 end
