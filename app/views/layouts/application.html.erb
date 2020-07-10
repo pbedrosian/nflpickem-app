@@ -15,10 +15,10 @@
   <body>
     <div class="topnav">
     <div id="nav-container">
-      <img src="https://i.ibb.co/NYcYrzW/i.png" class="logo" style="float: left">
       <%= link_to 'Home', root_path, class: 'active'%>
       <%= link_to 'Weekly Schedule', schedule_path%> 
       <%= link_to 'League', league_path%>
+
         <div style="float: right; margin-right: 15px">
             <% if user_signed_in? %>
               <%= link_to 'Profile', profile_path%>

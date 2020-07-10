@@ -39,6 +39,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'pry-rails'
 
+gem "twitter-bootstrap-rails"
+
+
 ##
 
 # Use Active Storage variant
