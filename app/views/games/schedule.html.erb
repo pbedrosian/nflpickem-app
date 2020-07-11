@@ -1,6 +1,6 @@
 <div class='body-container'>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-12">
       <h1> Weekly League Schedule </h1>
       <br>
       <%= form_tag schedule_path, method: :get do %>
@@ -11,11 +11,26 @@
       </p>
       <% end %>
       <br>
-      <div class="column d-flex justify-content-center">
-        <ul class="list-group">
-        <% @games.each do |g| %>
-          <li class="list-group-item"> <p><%= matchup g %></p> </li>
-      <% end %>
-    </div>
+      <table class="table" style="width:75%; text-align:center; margin: 0 auto; ">
+        <thead class="thead-dark">
+          <tr>
+            <th>Date</th>
+            <th>Home Team</th>
+            <th></th>
+            <th>Away Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @games.each do |g|%>
+          <tr>
+            <td><%= g.time%></td>
+            <td><%= g.home_team.name%></td>
+            <td> vs. </td>
+            <td><%= g.away_team.name%></td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+      </div>
   </div>
 </div>
