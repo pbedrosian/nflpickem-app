@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   devise_for :users, path: :accounts
 
-  resources :users, only: [:index, :show], path: :profile do
+  resources :users, only: :show, path: :profile do
     resources :picks
   end
 
