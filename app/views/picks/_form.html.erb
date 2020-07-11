@@ -17,6 +17,8 @@
     <%= f.check_box :buy_in, { checked: false }, true, false  %>
     </div>
 
+    <%= f.hidden_field :week_id, :value => Week.current_week %>
+
     <div class="actions">
     <%= f.submit %>
     </div>

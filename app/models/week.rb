@@ -1,5 +1,6 @@
 class Week < ApplicationRecord  
     has_many :games
+    has_many :picks
 
     def self.current_week
         week = Week.all.select do |w| 
