@@ -3,10 +3,13 @@ class PicksController < ApplicationController
     
     def index
         @picks = current_user.picks
+        if helpers.access?(params[:user_id])
+            redirect_to user_picks_path(current_user)
+        end
     end
     
     def show
-            
+
     end
 
     def new
