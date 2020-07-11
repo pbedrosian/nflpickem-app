@@ -6,6 +6,7 @@
   
   <div class="col-sm-6">
     <%= form_for(resource, as: resource_name, html: {class: "text-center border border-light p-5"}, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
     <p class="h4 mb-4">Login</p>
       <div class="field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email:', class: "form-control mb-4" %>
