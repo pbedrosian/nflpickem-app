@@ -31,6 +31,7 @@
               <%=link_to 'Overview', league_path, class: "dropdown-item"%>
               <% if user_signed_in?%>
                 <%=link_to 'Make Weekly Pick', new_user_pick_path(current_user), class: "dropdown-item"%>
+                <%=link_to 'View Picks', user_picks_path(current_user), class: "dropdown-item"%>
               <%end%>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
@@ -40,7 +41,7 @@
         <ul class="navbar-nav ml-auto"> 
             <li class="nav-item">
                <% if user_signed_in? %>
-                <%= link_to 'Profile', profile_path, class: 'nav-link'%>
+                <%= link_to 'Profile', user_path(current_user), class: 'nav-link'%>
               <% else %>
                <%= link_to 'Log In', new_user_session_path, class: 'nav-link'%> 
               <% end %> 

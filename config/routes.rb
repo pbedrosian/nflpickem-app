@@ -4,15 +4,13 @@ Rails.application.routes.draw do
   
   devise_for :users, path: :accounts
 
-  resources :users, only: :index do
+  resources :users, only: [:index, :show], path: :profile do
     resources :picks
   end
 
   # esources :teams
 
   # resources :games
-
-  get '/profile', to: 'users#show', as:'profile'
 
   get '/league', to: 'users#index'
 

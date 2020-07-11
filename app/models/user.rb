@@ -37,4 +37,20 @@ class User < ApplicationRecord
   def current_pick
       self.picks.last
   end
+
+  def self.news
+    require 'rss'
+    require 'open-uri'
+
+    url = 'https://www.espn.com/espn/rss/nfl/news'
+    open(url) do |rss|
+        feed = RSS::Parser.parse(url)
+        binding.pry
+        title = feed.title
+        feed.items.each do |item|
+        puts "Item: #{item.title}"
+        end
+    end
+  end
+  
 end

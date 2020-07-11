@@ -43,6 +43,8 @@ gem "twitter-bootstrap-rails"
 
 gem 'builder'
 
+gem 'rss'
+
 ##
 
 # Use Active Storage variant

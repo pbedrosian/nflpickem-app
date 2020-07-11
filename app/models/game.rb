@@ -6,4 +6,5 @@ class Game < ApplicationRecord
     def time
         self.date.to_time
     end
+
 end

@@ -1,13 +1,20 @@
 class PicksController < ApplicationController
     before_action :authenticate_user!
-
+    
     def index
         @picks = current_user.picks
     end
+    
+    def show
+            
+    end
 
     def new
-        #@games = Game.all.select {|g| g.week == 12} #add current_week method to get current week
-        @pick = current_user.picks.new
+        if params[:user_id] && !User.exists?(params[:user_id])
+            redirect_to users_path
+        else
+            @pick = current_user.picks.new
+        end
     end
 
     def create
@@ -18,10 +25,6 @@ class PicksController < ApplicationController
         else
             render :new
         end
-    end
-
-    def show
-        
     end
 
     def edit
