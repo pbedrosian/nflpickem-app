@@ -1,8 +1,20 @@
 <h1> Users Pick Page </h1>
 
-<div class="column d-flex justify-content-left">
-    <ul class="list-group">
-        <% @picks.each do |p| %>
-         <li class="list-group-item"> <p><%= p.team.name %></p> </li>
-    <% end %>
-</div>
+<table style="width:75%; text-align:center">
+  <tr>
+    <th>Week</th>
+    <th>Team</th>
+    <th>Date Picked</th>
+    <th>Outcome</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>

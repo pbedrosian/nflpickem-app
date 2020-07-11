@@ -3,7 +3,6 @@ class PicksController < ApplicationController
 
     def index
         @picks = current_user.picks
-        binding.pry
     end
 
     def new

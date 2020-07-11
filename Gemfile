@@ -41,6 +41,7 @@ gem 'pry-rails'
 
 gem "twitter-bootstrap-rails"
 
+gem 'builder'
 
 ##
 
