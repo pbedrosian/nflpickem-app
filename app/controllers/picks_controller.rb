@@ -2,7 +2,6 @@ class PicksController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        binding.pry
         @picks = current_user.picks
     end
 
@@ -13,6 +12,7 @@ class PicksController < ApplicationController
 
     def create
         @pick = current_user.picks.new(picks_params)
+        @pick.week = Week.current_week
         if @pick.save
             redirect_to user_picks_path
         else

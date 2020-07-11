@@ -1,20 +1,20 @@
-<h1> Users Pick Page </h1>
-
-<table style="width:75%; text-align:center">
-  <tr>
-    <th>Week</th>
-    <th>Team</th>
-    <th>Date Picked</th>
-    <th>Outcome</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
+<br>
+<table class="table" style="width:75%; text-align:center">
+  <thead class="thead-dark">
+    <tr>
+      <th>Week</th>
+      <th>Picked Team</th>
+      <th>Date Picked</th>
+      <th>Outcome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @picks.each do |p|%>
+    <tr>
+      <td>Week <%= p.week.id%></td>
+      <td><%= p.team.name%></td>
+      <td><%= p.updated_at%></td>
+    </tr>
+    <%end%>
+  </tbody>
 </table>

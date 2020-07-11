@@ -5,7 +5,7 @@ class Pick < ApplicationRecord
   
     validates :team_id, :presence => true
   
-    # validate :user_quota, :on => :create
+    validate :user_quota, :on => :create
   
     #if current_user has a pick within week zone, deny new pick. 
     private 
