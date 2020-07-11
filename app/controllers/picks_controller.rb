@@ -1,6 +1,11 @@
 class PicksController < ApplicationController
     before_action :authenticate_user!
 
+    def index
+        @picks = current_user.picks
+        binding.pry
+    end
+
     def new
         #@games = Game.all.select {|g| g.week == 12} #add current_week method to get current week
         @pick = current_user.picks.new
@@ -16,7 +21,7 @@ class PicksController < ApplicationController
     end
 
     def show
-        @picks = User.find_by_id(params[:user_id]).picks
+        
     end
 
     def edit

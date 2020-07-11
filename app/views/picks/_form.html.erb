@@ -9,7 +9,7 @@
 
     <div class="field">
     <label> Team </label><br>
-    <%= f.collection_select(:team_id, current_user.remaining_teams, :id, :name ) %>
+    <%= f.collection_select(:team_id, current_user.remaining_teams, :id, :name, class: "browser-default custom-select mb-4" ) %>
     </div>
 
     <div class="field">

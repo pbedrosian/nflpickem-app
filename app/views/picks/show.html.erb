@@ -1,1 +1,8 @@
 <h1> Users Pick Page </h1>
+
+<div class="column d-flex justify-content-center">
+    <ul class="list-group">
+        <% @picks.each do |p| %>
+         <li class="list-group-item"> <p><%= matchup g %></p> </li>
+    <% end %>
+</div>
