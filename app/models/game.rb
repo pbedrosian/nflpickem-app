@@ -4,7 +4,7 @@ class Game < ApplicationRecord
     belongs_to :week
    
     def time
-        self.date.to_time.strftime("%B %d, %Y at%l:%M %p")
+        self.date.to_time
     end
 
 end

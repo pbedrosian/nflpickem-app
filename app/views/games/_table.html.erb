@@ -1,0 +1,16 @@
+<h4> <%= games.first.time.strftime('%A, %B %-dth')%> </h4>
+<br>
+<% games.each do |g|%>
+<table>
+    <thead>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= g.time.strftime('%l:%M%P')%></td>
+            <td><%= g.away_team.name%></td>
+            <td>@</td>
+            <td><%= g.home_team.name%></td>
+        </tr>
+    <%end%>
+    </tbody>
+</table>
