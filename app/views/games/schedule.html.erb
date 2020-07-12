@@ -9,8 +9,6 @@
     </p>
     <% end %>
 <br>
-  <% @games.each do |games|%>
-    <%= render partial: "table", locals: {games: games} %>
-    <br>
-  <% end %>
+    <%= render partial: "table", locals: {games: @games} %>
+<br>
 </div>
