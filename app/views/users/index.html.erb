@@ -1,4 +1,11 @@
 <div class='body-container'>
-    <h1> Users Index page </h1>
-    <p>league standings</p>
+<br>
+    <h1> League Standings </h1>
+
+    <% @users.each do |user| %>
+        <ul>
+            <li> <%= link_to user.first_name, user_path(user)%> </li>
+        </ul>
+    <% end %>
+    
 </div>

@@ -10,10 +10,6 @@ Rails.application.routes.draw do
 
   patch '/users/:user_id/picks/:id', to: 'picks#show', as: 'picks'
 
-  # esources :teams
-
-  # resources :games
-
   get '/league', to: 'users#index'
 
   get '/schedule', to: 'games#schedule'

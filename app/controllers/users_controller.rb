@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     before_action :authenticate_user!, except: :home
 
     def index
+        @users = User.all
     end
     
     def home
@@ -9,9 +10,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        if helpers.access?(params[:id])
-            redirect_to user_path(current_user)
-        end
+        # if helpers.access?(params[:id])
+        #     redirect_to user_path(current_user)
+        # end
     end
     
     

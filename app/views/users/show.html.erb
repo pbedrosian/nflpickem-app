@@ -1,8 +1,7 @@
 <div class='body-container'>
-  <div class="jumbotron text-center">
-      <h1>Welcome <%=current_user.first_name%></h1>
-  </div>
-
+<% if params[:id].to_i == current_user.id %>
+  <%= render 'greeting' %>
+<% end %>
   <div class="container" style='text-align: center;'>
   <div class="row">
     <div class="col-sm-4">

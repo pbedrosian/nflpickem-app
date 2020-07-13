@@ -1,4 +1,5 @@
-<%= form_for @pick, url: user_pick_path(@pick) do |f| %>
+
+<%= form_for @pick, url: user_pick_path(@pick.user, @pick) do |f| %>
     <% if @pick.errors.any? %>
         <div id= "error_explanation">
             <% @pick.errors.full_messages.each do |message| %>

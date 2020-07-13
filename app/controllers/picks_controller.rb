@@ -13,7 +13,7 @@ class PicksController < ApplicationController
     end
 
     def new
-        @pick = Pick.new
+        @pick = current_user.picks
         if params[:user_id] && !User.exists?(params[:user_id])
             redirect_to users_path
         end
