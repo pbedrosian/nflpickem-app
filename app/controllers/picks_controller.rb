@@ -13,10 +13,9 @@ class PicksController < ApplicationController
     end
 
     def new
+        @pick = Pick.new
         if params[:user_id] && !User.exists?(params[:user_id])
             redirect_to users_path
-        else
-            @pick = current_user.picks.new
         end
     end
 
@@ -31,12 +30,17 @@ class PicksController < ApplicationController
     end
 
     def edit
-        user = User.find_by_id(params[:user_id])
-        @pick = user.picks.find_by_id(params[:id])
+        @pick = current_user.picks.find_by_id(params[:id])
     end
 
     def update
-        
+        @pick = current_user.picks.find_by_id(params[:id])
+        @pick.update(picks_params)
+        if @pick.save
+          redirect_to user_picks_path
+        else
+          render :edit
+        end
     end
 
     private

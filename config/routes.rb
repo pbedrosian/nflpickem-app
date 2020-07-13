@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   devise_for :users, path: :accounts
 
   resources :users, only: :show, path: :profile do
-    resources :picks
+    resources :picks, except: :patch
   end
+
+  patch '/users/:user_id/picks/:id', to: 'picks#show', as: 'picks'
 
   # esources :teams
 

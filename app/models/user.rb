@@ -3,14 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+        
+  has_many :teams, through: :picks
 
   has_many :picks do
+
   def this_week
     where(:created_at => (Week.current_week.start_of_week..Week.current_week.end_of_week))
       end
   end
       
-  has_many :teams, through: :picks
   
   validates :password, :presence => true,
                         :confirmation => true,

@@ -12,7 +12,7 @@
     <% @picks.each do |p|%>
     <tr>
       <td>Week <%= p.week.id%></td>
-      <td><%= p.team.name%></td>
+      <td><%= link_to p.team.name, edit_user_pick_path(p.user, p) %></td>
       <td><%= p.updated_at%></td>
     </tr>
     <%end%>
