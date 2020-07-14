@@ -10,9 +10,10 @@ class UsersController < ApplicationController
     end
 
     def show
-        # if helpers.access?(params[:id])
-        #     redirect_to user_path(current_user)
-        # end
+        if !User.find_by_id(params[:id])
+            redirect_to user_path(current_user)
+        end
+
     end
     
     

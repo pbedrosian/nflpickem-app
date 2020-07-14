@@ -3,8 +3,12 @@ class PicksController < ApplicationController
     
     def index
         @picks = current_user.picks
-        if helpers.access?(params[:user_id])
-            redirect_to user_picks_path(current_user)
+        # if helpers.access?(params[:user_id])
+        #     redirect_to user_picks_path(current_user)
+        # end
+
+        if helpers.access?(params) 
+            redirect_to user_picks_path
         end
     end
     
@@ -13,9 +17,10 @@ class PicksController < ApplicationController
     end
 
     def new
-        @pick = current_user.picks
-        if params[:user_id] && !User.exists?(params[:user_id])
-            redirect_to users_path
+        @user = current_user
+        @pick = Pick.new
+        if helpers.access?(params[:user_id]) 
+            redirect_to new_user_pick_path(current_user)
         end
     end
 
@@ -30,7 +35,11 @@ class PicksController < ApplicationController
     end
 
     def edit
-        @pick = current_user.picks.find_by_id(params[:id])
+        @user = current_user
+        if @pick = current_user.picks.find_by_id(params[:id])
+        else
+            redirect_to user_picks_path, alert: 'Invalid Pick. Please try again.'
+        end
     end
 
     def update
