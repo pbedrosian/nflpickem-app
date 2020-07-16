@@ -45,6 +45,13 @@ gem 'builder'
 
 gem 'rss'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
+
+
 ##
 
 # Use Active Storage variant

@@ -1,12 +1,10 @@
 class PicksController < ApplicationController
     before_action :authenticate_user!
+    # before_action :access?
+
     
     def index
         @picks = current_user.picks
-        # if helpers.access?(params[:user_id])
-        #     redirect_to user_picks_path(current_user)
-        # end
-
         if helpers.access?(params) 
             redirect_to user_picks_path
         end
@@ -19,7 +17,7 @@ class PicksController < ApplicationController
     def new
         @user = current_user
         @pick = Pick.new
-        if helpers.access?(params[:user_id]) 
+        if helpers.access?(params) 
             redirect_to new_user_pick_path(current_user)
         end
     end

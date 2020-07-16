@@ -1,5 +1,4 @@
-
-<%= form_for [@user, @pick] do |f| %>
+<%= form_for [@user, @pick], html: {class: "border border-light p-5"} do |f| %>
     <% if @pick.errors.any? %>
         <div id= "error_explanation">
             <% @pick.errors.full_messages.each do |message| %>
@@ -8,16 +7,16 @@
         </div>
     <% end %>
 
-    <div class="field">
+    <div class="form-group">
     <label> Team </label><br>
-    <%= f.collection_select(:team_id, current_user.remaining_teams, :id, :name, class: "browser-default custom-select mb-4" ) %>
+        <%= f.collection_select(:team_id, current_user.remaining_teams, :id, :name, html: {class: "form-control form-control-lg"}) %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
     <%= f.label :buy_in %><br>
     <%= f.check_box :buy_in, { checked: false }, true, false  %>
     </div>
     <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create Pick', class: 'btn btn-info btn-block my-4'%>
     </div>
 <% end %>
