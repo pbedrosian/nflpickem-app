@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!, except: :home
-    before_action :access?
+    # before_action :access?
 
 
     def index

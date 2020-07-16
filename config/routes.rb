@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'users#home'
   
-  devise_for :users, path: :accounts
+  devise_for :users, controllers: {omniauth_callbacks: 'omniauth'}, path: :accounts
 
   resources :users, only: :show, path: :profile do
     resources :picks, except: :patch

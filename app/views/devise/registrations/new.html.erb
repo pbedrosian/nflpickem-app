@@ -32,10 +32,13 @@
           <%= f.submit "Sign up", class: 'btn btn-info btn-block my-4' %>
         </div><br>
         <%= render "devise/shared/error_messages", resource: resource %>
+        <%= render "devise/shared/links" %>
+
       <p>Already a member?
         <%= link_to 'Login', new_user_session_path %>
       </p>
       <% end %>
+
 
   </div>
 <div class="col-sm-3">
