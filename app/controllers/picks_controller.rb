@@ -2,7 +2,7 @@ class PicksController < ApplicationController
     before_action :authenticate_user!
     # before_action :access?
 
-    
+
     def index
         @picks = current_user.picks
         if helpers.access?(params) 
@@ -24,6 +24,7 @@ class PicksController < ApplicationController
 
     def create
         @pick = current_user.picks.new(picks_params)
+        @user = current_user
         @pick.week = Week.current_week
         if @pick.save
             redirect_to user_picks_path
