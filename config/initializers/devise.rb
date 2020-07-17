@@ -272,8 +272,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   config.omniauth :facebook, "#{ENV['FACEBOOK_KEY']}", "#{ENV['FACEBOOK_SECRET']}", scope: 'public_profile,email'
-  config.omniauth :github, "#{ENV['GITGUB_KEY']}", "#{ENV['GITGUB_SECRET']}", scope: 'user,public_repo'
-  config.omniauth :google_oauth2, "#{ENV['GOOGLE_KEY']}", "#{ENV['GOOGLE_SECRET']}", scope: 'userinfo.email,userinfo.profile'
+  # config.omniauth :github, "#{ENV['GITGUB_KEY']}", "#{ENV['GITGUB_SECRET']}", scope: 'user,public_repo'
+  # config.omniauth :google_oauth2, "#{ENV['GOOGLE_KEY']}", "#{ENV['GOOGLE_SECRET']}", scope: 'userinfo.email,userinfo.profile', skip_jwt: true
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

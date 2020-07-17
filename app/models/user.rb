@@ -9,17 +9,20 @@ class User < ApplicationRecord
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
       user.email = provider_data.info.email
       user.password = Devise.friendly_token[0, 20]
+      name = provider_data.info.name.split
+      user.first_name = name.first
+      user.last_name = name.last
     end
   end
         
+has_many :teams, through: :picks
+
   
 has_many :picks do
  def this_week
   where(:created_at => (Week.current_week.start_of_week..Week.current_week.end_of_week))
     end
 end
-
-has_many :teams, through: :picks
 
 
 
