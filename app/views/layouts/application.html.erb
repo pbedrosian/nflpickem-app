@@ -21,23 +21,32 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <%= link_to 'Weekly Schedule', schedule_path, class: 'nav-link'%>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Schedule
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'League Schedule', schedule_path, class: 'nav-link'%>
+              <%= link_to 'Team Schedule', teams_path, class: 'nav-link'%>
+            </div>
           </li>
+          
+        <% if user_signed_in?%>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               League
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%=link_to 'Overview', league_path, class: "dropdown-item"%>
-              <% if user_signed_in?%>
                 <%=link_to 'Make Weekly Pick', new_user_pick_path(current_user), class: "dropdown-item"%>
                 <%=link_to 'View Picks', user_picks_path(current_user), class: "dropdown-item"%>
-              <%end%>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
+        <%end%>
+
         </ul>
         <ul class="navbar-nav ml-auto"> 
             <li class="nav-item">
