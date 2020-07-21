@@ -14,7 +14,7 @@ class PicksController < ApplicationController
 
     end
 
-    def new
+    def new        
         @user = current_user
         @pick = Pick.new
         if helpers.access?(params) 
@@ -49,6 +49,11 @@ class PicksController < ApplicationController
         else
           render :edit
         end
+    end
+
+    def destroy
+        Pick.find(params[:id]).delete
+        redirect_to user_picks_path
     end
 
     private

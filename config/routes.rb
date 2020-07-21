@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :picks, except: :patch
   end
 
+  resources :teams, only: [:index, :show]
+
   patch '/users/:user_id/picks/:id', to: 'picks#show', as: 'picks'
 
   get '/league', to: 'users#index'
