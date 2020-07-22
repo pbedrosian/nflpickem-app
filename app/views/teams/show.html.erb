@@ -1,3 +1,29 @@
 <div class='body-container'>
     <h1> <%= @team.name%> <h2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th>Week</th>
+            <th>Agaisnt</th>
+            <th></th>
+            <th>Date</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <%        binding.pry%>
+            <% @team.games.sort_by(&:week_id).each do |g|
+            <tr>
+            <td>Week <%= g.week.id%></td>
+            <td><%= p.team.name %></td>
+            <% if p.week == Week.current_week %>
+                <td style='font-size:12px;'><%= link_to 'Edit Pick', edit_user_pick_path(p.user, p)%> - <%= link_to 'Delete Pick', user_pick_path(p.user, p), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+            <%end%>
+            <td><%= p.updated_at.strftime('%A, %B %dth')%></td>
+            <td></td>
+            <td><%= p.buy_in%></td>
+            </tr>
+            <%end%>
+        </tbody>
+    </table>
 </div>

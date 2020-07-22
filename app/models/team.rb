@@ -13,4 +13,10 @@ class Team < ApplicationRecord
         games.flatten
     end
 
+    private
+
+    def self.search(params)
+        find(params.to_i)
+    end
+
 end

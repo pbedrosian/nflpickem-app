@@ -11,14 +11,6 @@ class Week < ApplicationRecord
         week[0]
     end
 
-    # def self.search(query)
-    #     if query.present? 
-    #         self.find_by_id(query).games
-    #     else 
-    #         self.current_week.games
-    #     end
-    # end
-
     def days_played
         days = self.games.map do |g|
             g.date.to_time.strftime('%A')
@@ -36,10 +28,10 @@ class Week < ApplicationRecord
             params = current_week.id
         end
         w = self.find_by_id(params)
-         days = w.days_played
-        days.map do |d|
+        w.days_played.map do |d|
             arr << w.games_by_day(d)
         end
         arr
     end
+
 end
