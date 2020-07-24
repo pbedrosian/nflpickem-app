@@ -1,7 +1,10 @@
 <div class='body-container'>
 <br>
-    <h1> League Standings </h1>
-
+    <div class='inline'>
+        <h1> League Standings </h1>
+        <%= render 'search' %>
+    </div>
+    <br>
     <% @users.each do |user| %>
         <ul>
             <li> <%= link_to user.first_name, user_path(user)%> </li>

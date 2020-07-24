@@ -1,4 +1,5 @@
 module TeamsHelper
+
     def opponents(team,game)
         opponent = nil
         if game.home_team == team 
@@ -8,4 +9,5 @@ module TeamsHelper
         end
         opponent.name
     end
+    
 end
