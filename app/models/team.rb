@@ -13,6 +13,12 @@ class Team < ApplicationRecord
         games.flatten
     end
 
+    def current_game
+        self.games.select |g|
+            g.week current_week.id
+        end
+    end
+
 
     private
 

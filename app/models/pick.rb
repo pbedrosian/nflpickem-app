@@ -7,6 +7,23 @@ class Pick < ApplicationRecord
   
     validate :user_quota, :on => :create
 
+    url = "http://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/nfl/upcoming/games.json" 
+    @api = HTTParty.get(url)
+
+    def self.get_team_id(abv)
+        team = Team.find_by abbreviation: abv
+        team.id
+    end
+
+
+
+    def self.get_outcome(picks)
+      picks.each do |p| 
+        @api
+        # binding.pry
+      end
+    end
+
     
     def self.valid_pick?(pick)
       pick.team.bye == Week.current_week.id
