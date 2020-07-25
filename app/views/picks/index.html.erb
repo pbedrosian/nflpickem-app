@@ -20,7 +20,7 @@
       <% if p.week == current_week %>
         <td style='font-size:12px;'><%= link_to 'Edit Pick', edit_user_pick_path(p.user, p)%> - <%= link_to 'Delete Pick', user_pick_path(p.user, p), method: :delete, data: { confirm: 'Are you sure?' }%></td>
       <%end%>
-      <td><%= p.updated_at.strftime('%A, %B %dth')%></td>
+      <td><%= p.updated_at.localtime.strftime('%A, %B %dth')%></td>
       <td></td>
       <td><%= p.buy_in%></td>
     </tr>

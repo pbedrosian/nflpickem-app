@@ -6,6 +6,11 @@ class Pick < ApplicationRecord
     validates :team_id, :presence => true
   
     validate :user_quota, :on => :create
+
+    
+    def self.valid_pick?(pick)
+      pick.team.bye == Week.current_week.id
+    end
   
     private 
   

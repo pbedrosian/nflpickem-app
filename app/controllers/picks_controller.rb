@@ -26,6 +26,10 @@ class PicksController < ApplicationController
         @pick = current_user.picks.new(picks_params)
         @user = current_user
         @pick.week = Week.current_week
+
+        if (Pick.valid_pick?(@pick))
+            render :new, alert: 'Your selected team is on Bye. Please try again.'
+        end
         if @pick.save
             redirect_to user_picks_path
         else
@@ -44,6 +48,9 @@ class PicksController < ApplicationController
     def update
         @pick = current_user.picks.find_by_id(params[:id])
         @pick.update(picks_params)
+        if (Pick.valid_pick?(@pick))
+            render :edit, alert: 'Your selected team is on Bye. Please try again.'
+        end
         if @pick.save
           redirect_to user_picks_path
         else
