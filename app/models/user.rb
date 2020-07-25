@@ -15,8 +15,6 @@ class User < ApplicationRecord
     end
   end
         
-has_many :teams, through: :picks
-
   
 has_many :picks do
  def this_week
@@ -24,9 +22,8 @@ has_many :picks do
     end
 end
 
+has_many :teams, through: :picks
 
-
-      
   
   validates :password, :presence => true,
                         :confirmation => true,
@@ -54,21 +51,6 @@ end
       self.picks.last
   end
 
-  def self.news
-    require 'rss'
-    require 'open-uri'
-
-    url = 'https://www.espn.com/espn/rss/nfl/news'
-    open(url) do |rss|
-        feed = RSS::Parser.parse(url)
-        binding.pry
-        title = feed.title
-        feed.items.each do |item|
-        puts "Item: #{item.title}"
-        end
-    end
-  end
-  
   def self.search(query)
     if query.present?
       where('FIRST_NAME like ? OR LAST_NAME like ?', "%#{query}%", "%#{query}%")
@@ -76,5 +58,20 @@ end
       self.all
     end
   end
+
+  # def self.news
+  #   require 'rss'
+  #   require 'open-uri'
+
+  #   url = 'https://www.espn.com/espn/rss/nfl/news'
+  #   open(url) do |rss|
+  #       feed = RSS::Parser.parse(url)
+  #       binding.pry
+  #       title = feed.title
+  #       feed.items.each do |item|
+  #       puts "Item: #{item.title}"
+  #       end
+  #   end
+  # end
   
 end

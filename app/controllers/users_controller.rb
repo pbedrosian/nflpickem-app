@@ -5,8 +5,6 @@ class UsersController < ApplicationController
 
     def index
         @users = User.search(params[:query])
-        binding.pry
-
     end
     
     def home
