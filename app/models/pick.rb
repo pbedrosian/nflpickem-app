@@ -7,14 +7,6 @@ class Pick < ApplicationRecord
   
     validate :user_quota, :on => :create
 
-    url = "http://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/nfl/upcoming/games.json" 
-    @api = HTTParty.get(url)
-
-    def self.get_team_id(abv)
-        team = Team.find_by abbreviation: abv
-        team.id
-    end
-
 
 
     def self.get_outcome(picks)

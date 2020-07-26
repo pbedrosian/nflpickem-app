@@ -13,10 +13,8 @@ class Team < ApplicationRecord
         games.flatten
     end
 
-    def current_game
-        self.games.select |g|
-            g.week current_week.id
-        end
+    def weekly_game
+        self.games.select {|g| g.week == Week.current_week}
     end
 
 
