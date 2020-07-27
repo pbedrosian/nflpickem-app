@@ -7,6 +7,7 @@
       <th>Picked Team</th>
       <th></th>
       <th>Date Picked</th>
+      <th>Date of Game</th>
       <th>Outcome</th>
       <th>Buy In?</th>
       <th></th>
@@ -24,6 +25,12 @@
       <%end%>
       <td><%= p.updated_at.localtime.strftime('%A, %B %dth')%></td>
       <td></td>
+
+      <% if get_game(p).winner_id == nil%>
+        <td style="color:red; font-size:12px;">Game Has Not Started</td>
+      <% else %>
+        <td><% get_game(p).winner.name %>
+      <% end %>
       <td><%= p.buy_in%></td>
     </tr>
     <%end%>

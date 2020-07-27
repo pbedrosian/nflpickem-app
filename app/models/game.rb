@@ -11,14 +11,15 @@ class Game < ApplicationRecord
         picks.each do |p| 
             team = p.team
             picked_game = Game.where(week: Week.current_week, home_team: team).or(Game.where(week: Week.current_week, away_team: team)).first
-            game_score = Api.data["games"].select {|g| g["schedule"]["id"] == picked_game.api_id}.first["score"]
-            # if game_score["awayScoreTotal"] && game_score["homeScoreTotal"] == nil
-            #     "Game has not Started, check back soon"
-            # elsif game_score["awayScoreTotal"] > game_score["homeScoreTotal"]
-            #     "Away Team won"
-            # else game_score["awayScoreTotal"] < game_score["homeScoreTotal"]
-            #     "Home Team won"
-            # end            
+            game = Api.data["games"].select {|g| g["schedule"]["id"] == picked_game.api_id}.first
+            # binding.pry          
+            if game["score"]["awayScoreTotal"] == nil && game["score"]["homeScoreTotal"] == nil
+                return "Game has not started."
+            elsif game["score"]["awayScoreTotal"] > game["score"]["homeScoreTotal"]
+                picked_game.update(winnder_id: picked_game.away_team)
+            else game["score"]["awayScoreTotal"] < game["score"]["homeScoreTotal"]
+                picked_game.update(winnder_id: picked_game.home_team)
+            end  
         end
     end 
 
