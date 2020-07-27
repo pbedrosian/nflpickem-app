@@ -23,5 +23,6 @@ class Team < ApplicationRecord
     def self.search(params)
         find(params.to_i)
     end
+    
 
 end

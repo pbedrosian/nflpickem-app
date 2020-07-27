@@ -7,15 +7,6 @@ class Pick < ApplicationRecord
   
     validate :user_quota, :on => :create
 
-
-
-    def self.get_outcome(picks)
-      picks.each do |p| 
-        @api
-        # binding.pry
-      end
-    end
-
     
     def self.valid_pick?(pick)
       pick.team.bye == Week.current_week.id
