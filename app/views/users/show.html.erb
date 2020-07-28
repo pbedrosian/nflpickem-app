@@ -6,7 +6,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <h1> Recent Pick: </h1>
+    <h1> Recent Pick: </h1>
+    <% if @user.picks.empty? %>
+      <em> No Picks Made. </em>
+    <% else %>
       <h1 style="color:#15088a"><%= @user.picks.last.team.name%></h1>
     </div>
     <div class="col-sm">
@@ -14,6 +17,7 @@
       <p> <%= get_game(@user.picks.last).date.to_time.localtime.strftime('%A, %B %dth')%></p>
       <b>Opponent:</b>
       <p><%= opponents(@user.picks.last.team, get_game(@user.picks.last))%></p>
+    <% end%>
     </div>
   </div>
 </div>

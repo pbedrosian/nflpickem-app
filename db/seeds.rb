@@ -60,7 +60,9 @@ info["games"].each do |g|
     date = g["schedule"]["startTime"].to_time.in_time_zone("America/New_York")
     week = g["schedule"]["week"]
     api_id = g["schedule"]["id"]
-    game = Game.new(home_team_id: home_team, away_team_id: away_team, winner_id: nil, date: date, week_id: week, api_id: api_id)
+    status = g["schedule"]["playedStatus"]
+    network = g["schedule"]["broadcasters"].first
+    game = Game.new(home_team_id: home_team, away_team_id: away_team, winner_id: nil, date: date, week_id: week, api_id: api_id, status: status, network: network)
     game.save(validate: false)
 end
 

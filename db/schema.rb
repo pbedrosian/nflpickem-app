@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_25_235715) do
+ActiveRecord::Schema.define(version: 2020_07_28_152749) do
 
   create_table "games", force: :cascade do |t|
     t.integer "home_team_id"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_07_25_235715) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "api_id"
+    t.string "status"
+    t.string "network"
   end
 
   create_table "picks", force: :cascade do |t|
