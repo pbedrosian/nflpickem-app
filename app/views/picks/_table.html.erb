@@ -16,22 +16,22 @@
   <tbody>
     <% picks.each do |p|%>
     <tr>
-      <td>Week <%= p.week.id%></td>
-      <td><%= p.team.name %></td>
+      <td style='font-size:13px;'>Week <%= p.week.id%></td>
+      <td style='font-size:13px;'><%= p.team.name %></td>
       <% if (p.week == current_week) && (params[:user_id].to_i == current_user.id) %>
-        <td style='font-size:12px;'><%= link_to 'Edit Pick', edit_user_pick_path(p.user, p)%> - <%= link_to 'Delete Pick', user_pick_path(p.user, p), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <td style='font-size:13px;'><%= link_to 'Edit Pick', edit_user_pick_path(p.user, p)%> - <%= link_to 'Delete Pick', user_pick_path(p.user, p), method: :delete, data: { confirm: 'Are you sure?' }%></td>
         <%else%>
         <td></td>
       <%end%>
-      <td><%= p.updated_at.localtime.strftime('%A, %B %dth')%></td>
-      <td></td>
+      <td style='font-size:13px;'><%= p.updated_at.localtime.strftime('%A, %B %dth')%></td>
+      <td style='font-size:13px;'> <%= get_game(p).date.to_time.localtime.strftime('%A, %B %dth')%></td>
 
       <% if get_game(p).winner_id == nil%>
-        <td style="color:red; font-size:12px;">Game Has Not Started</td>
+        <td style="color:red; font-size:13px;">Game Has Not Started</td>
       <% else %>
-        <td><% get_game(p).winner.name %>
+        <td style='font-size:13px;'><%= get_game(p).winner.name %>
       <% end %>
-      <td><%= p.buy_in%></td>
+      <td style='font-size:13px;'><%= p.buy_in%></td>
     </tr>
     <%end%>
   </tbody>
