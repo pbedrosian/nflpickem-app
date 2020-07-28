@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: [:facebook, :github, :google_oauth2]
 
   def self.create_from_provider_data(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
@@ -12,6 +12,8 @@ class User < ApplicationRecord
       name = provider_data.info.name.split
       user.first_name = name.first
       user.last_name = name.last
+      binding.pry
+      user.username = name.first + name.last
     end
   end
         

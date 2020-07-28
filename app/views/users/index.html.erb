@@ -1,13 +1,20 @@
 <div class='body-container'>
 <br>
-    <div class='inline'>
-        <h1> League Players </h1>
-       <h6> <%= render 'search' %> </h6>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1> League Players </h1>   
+                <br>
+                <% @users.each do |user| %>
+                    <ul>
+                        <li> <%= link_to user.username, user_path(user)%> </li>
+                    </ul>
+                <% end %>
+            </div>
+            <div class="col">
+                <br>
+                <h6> <%= render 'search' %> </h6>
+            </div>
+        </div>
     </div>
-    <br>
-    <% @users.each do |user| %>
-        <ul>
-            <li> <%= link_to user.username, user_path(user)%> </li>
-        </ul>
-    <% end %>
 </div>

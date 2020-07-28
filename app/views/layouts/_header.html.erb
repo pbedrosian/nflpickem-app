@@ -38,7 +38,7 @@
               League
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%=link_to 'Overview', league_path, class: "dropdown-item"%>
+              <%=link_to 'League Overview', league_path, class: "dropdown-item"%>
               <%if !(has_current_pick?) %>
                 <%=link_to 'Make Weekly Pick', new_user_pick_path(current_user), class: "dropdown-item"%>
               <% end %>
