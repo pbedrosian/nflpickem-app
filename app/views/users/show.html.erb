@@ -2,23 +2,22 @@
 <% if params[:id].to_i == current_user.id %>
   <%= render 'greeting' %>
 <% end %>
-  <div class="container" style='text-align: center;'>
+<br>
+<div class="container">
   <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor..</p>
+    <div class="col-sm">
+      <h1> Recent Pick: </h1>
+      <h1 style="color:#15088a"><%= @user.picks.last.team.name%></h1>
     </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor..</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>
-      <p>Lorem ipsum dolor..</p>
+    <div class="col-sm">
+      <b>Date of Game: </b>
+      <p> <%= get_game(@user.picks.last).date.to_time.localtime.strftime('%A, %B %dth')%></p>
+      <b>Opponent:</b>
+      <p><%= opponents(@user.picks.last.team, get_game(@user.picks.last))%></p>
     </div>
   </div>
-  </div>
-  <br>
-  <h3> Season Picks </h3>
 </div>
-<%= render partial: 'picks/table', locals: { picks: @picks } %>
+<br>
+<h3> Season Picks </h3>
+</div>
+<%= render partial: 'picks/table', locals: { picks: @user.picks } %>

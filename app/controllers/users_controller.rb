@@ -15,8 +15,7 @@ class UsersController < ApplicationController
         if !User.find_by_id(params[:id])
             redirect_to user_path(current_user)
         end
-        @picks = User.find_by_id(params[:id]).picks
-
+        @user = User.find_by_id(params[:id])
     end
     
     
