@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_152749) do
+ActiveRecord::Schema.define(version: 2020_07_28_160006) do
 
   create_table "games", force: :cascade do |t|
     t.integer "home_team_id"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_07_28_152749) do
     t.string "last_name"
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

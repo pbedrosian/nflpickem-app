@@ -10,13 +10,15 @@
     <% if @user.picks.empty? %>
       <em> No Picks Made. </em>
     <% else %>
-      <h1 style="color:#15088a"><%= @user.picks.last.team.name%></h1>
+      <h1 style="color:#15088a"><%= @user.current_pick.team.name%></h1>
     </div>
     <div class="col-sm">
       <b>Date of Game: </b>
-      <p> <%= get_game(@user.picks.last).date.to_time.localtime.strftime('%A, %B %dth')%></p>
+      <p> <%= get_game(@user.current_pick).date.to_time.localtime.strftime('%A, %B %dth')%></p>
       <b>Opponent:</b>
-      <p><%= opponents(@user.picks.last.team, get_game(@user.picks.last))%></p>
+      <p><%= opponents(@user.current_pick.team, get_game(@user.current_pick))%></p>
+      <b>Status:</b>
+      <p><%= get_game(@user.current_pick).status %> </p>
     <% end%>
     </div>
   </div>

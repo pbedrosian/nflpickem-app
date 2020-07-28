@@ -26,7 +26,7 @@
       <td style='font-size:13px;'><%= p.updated_at.localtime.strftime('%A, %B %dth')%></td>
       <td style='font-size:13px;'> <%= get_game(p).date.to_time.localtime.strftime('%A, %B %dth')%></td>
 
-      <% if get_game(p).winner_id == nil%>
+      <% if get_game(p).status == "UNPLAYED"%>
         <td style="color:red; font-size:13px;">Game Has Not Started</td>
       <% else %>
         <td style='font-size:13px;'><%= get_game(p).winner.name %>

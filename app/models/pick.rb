@@ -6,6 +6,8 @@ class Pick < ApplicationRecord
     validates :team_id, :presence => true
   
     validate :user_quota, :on => :create
+    # validate :loss, :on => :create
+
 
     
     def self.valid_pick?(pick)

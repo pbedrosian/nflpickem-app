@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook, :github, :google_oauth2]
+         :omniauthable, omniauth_providers: [:facebook]
 
   def self.create_from_provider_data(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|
@@ -37,6 +37,10 @@ has_many :teams, through: :picks
   
   validates :email, uniqueness: true
   validates :email, presence: true
+  validates :username, uniqueness: true
+  validates :username, presence: true
+
+
   
   def remaining_teams
       if self.picks.empty?
