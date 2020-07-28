@@ -7,8 +7,7 @@
     <br>
     <% @users.each do |user| %>
         <ul>
-            <li> <%= link_to user.first_name, user_path(user)%> </li>
+            <li> <%= link_to user.username, user_path(user)%> </li>
         </ul>
     <% end %>
-    
 </div>

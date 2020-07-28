@@ -57,7 +57,7 @@ has_many :teams, through: :picks
 
   def self.search(query)
     if query.present?
-      where('FIRST_NAME like ? OR LAST_NAME like ?', "%#{query}%", "%#{query}%")
+      where('USERNAME like ?', "%#{query}%")
     else
       self.all
     end
