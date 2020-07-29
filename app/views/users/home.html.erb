@@ -1,5 +1,40 @@
 <div class='body-container'>
-    <h1> Recent News </h1>
     <br>
-    <script src="//rss.bloople.net/?url=https%3A%2F%2Fwww.espn.com%2Fespn%2Frss%2Fnfl%2Fnews&showtitle=false&type=js"></script>
+    
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        <figure>
+        <p><img class=scaled src=<%=@news[0]["image"]%>>
+        <figcaption>
+            <div class="img-caption">
+                <%= link_to @news[0]["title"], @news[0]["link"] %>
+                <p class="img-description"> <%=@news[0]["description"]%> </p>
+                <div class="test" style="background-color:white; padding:7px; border-radius:5px;">
+                    <p class="img-description"> 
+                        <img class="lower-img" src=<%=@news[1]["image"]%>> 
+                        <br>
+                        <b style="background-color:white;"><%=link_to @news[1]["description"], @news[1]["link"]%></b>
+                    </p>
+                </div>
+                <br>
+            </div>
+        </figcaption>
+    </figure>
+    <figure>
+    </div>
+    <div class="col-sm">
+        <h6> Top Headlines: </h6>
+        <hr>
+        <ul style="list-style-type: none;">
+            <% @news.drop(2).take(10).each do |article| %>
+            <li style="font-size:14px"> <%= link_to article["title"] %> </li>
+            <li></li>
+            <% end%>
+        <br>
+        <b style="text-align:left;">Read more on <%= link_to 'ESPN', 'https://www.espn.com/nfl'%>
+        <ul>
+    </div>
+  </div>
+</div>
 </div>

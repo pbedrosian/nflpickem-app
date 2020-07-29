@@ -51,6 +51,10 @@ gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store'
 
+gem "feedjira"
+gem 'crack'
+
+
 
 ##
 

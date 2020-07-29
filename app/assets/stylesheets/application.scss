@@ -43,3 +43,50 @@
     }
     .copyright p{border-top:1px solid rgba(0,0,0,.1);} 
   }
+  
+  figure {
+    float: center;
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+    text-indent: 0;
+    padding: 0.5em;
+  }
+  img.scaled {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .img-caption {
+    background-color: rgba(221, 221, 221, 0.445);
+    border-radius: 5px;
+    padding: 15px;
+  }
+
+  .img-description {
+    font-size: 13px;
+  }
+
+  a:visited {
+    color: black;
+  }
+
+  .lower-img {
+    float: left;
+    width:30%;
+    border: white;
+    border-style: solid;
+    border-width: thick;
+    border-radius: 5px;
+
+  }
+
+  hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+  } 

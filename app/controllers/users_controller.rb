@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     end
     
     def home
-        
+        @news = Rss.news.first[1]["channel"]["item"]
     end
 
     def show
