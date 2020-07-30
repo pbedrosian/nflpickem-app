@@ -12,7 +12,7 @@
                 <p class="img-description"> <%=@news[0]["description"]%> </p>
                 <div class="test" style="background-color:white; padding:7px; border-radius:5px;">
                     <p class="img-description"> 
-                        <img class="lower-img" src=<%=@news[1]["image"]%>> 
+                        <img class="lower-img" style="background-color:white;" src=<%=@news[1]["image"]%>> 
                         <br>
                         <b style="background-color:white;"><%=link_to @news[1]["description"], @news[1]["link"]%></b>
                     </p>
@@ -27,14 +27,17 @@
         <h6> Top Headlines: </h6>
         <hr>
         <ul style="list-style-type: none;">
-            <% @news.drop(2).take(10).each do |article| %>
+            <% @news.drop(2).take(17).each do |article| %>
             <li style="font-size:14px"> <%= link_to article["title"] %> </li>
-            <li></li>
+            <li>
             <% end%>
         <br>
-        <b style="text-align:left;">Read more on <%= link_to 'ESPN', 'https://www.espn.com/nfl'%>
+        <b style="text-align:left;">Read more on <%= link_to 'ESPN', 'https://www.espn.com/nfl'%> </b>
         <ul>
-    </div>
+        <br>
+
+    </div> 
+    
   </div>
 </div>
 </div>

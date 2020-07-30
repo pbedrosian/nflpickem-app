@@ -27,7 +27,7 @@ class PicksController < ApplicationController
         @pick = current_user.picks.new(picks_params)
         @user = current_user
         @pick.week = Week.current_week
-
+        binding.pry
         if (Pick.valid_pick?(@pick))
             render :new, alert: 'Your selected team is on Bye. Please try again.'
         end
