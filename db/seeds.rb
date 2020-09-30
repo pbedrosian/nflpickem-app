@@ -47,14 +47,16 @@ Team.new(name: "Washington Redskins", abbreviation: "WAS", bye: 8).save(validate
 
 # Schedule
 
-url = "http://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/nfl/upcoming/games.json" 
+url = "http://#{ENV['API_KEY']}@api.mysportsfeeds.com/v2.1/pull/nfl/2020-2021-regular/games.json" 
 info = HTTParty.get(url)
 def get_team_id(abv)
     team = Team.find_by abbreviation: abv
     team.id
 end
 
+
 info["games"].each do |g|
+    # binding.pry
     home_team = get_team_id(g["schedule"]["homeTeam"]["abbreviation"])
     away_team = get_team_id(g["schedule"]["awayTeam"]["abbreviation"])
     date = g["schedule"]["startTime"].to_time.in_time_zone("America/New_York")

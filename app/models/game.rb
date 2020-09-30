@@ -14,7 +14,6 @@ class Game < ApplicationRecord
             team = p.team
             picked_game = Game.where(week: Week.current_week, home_team: team).or(Game.where(week: Week.current_week, away_team: team)).first
             game = Api.data["games"].select {|g| g["schedule"]["id"] == picked_game.api_id}.first
-            # binding.pry          
             if game["score"]["awayScoreTotal"] == nil && game["score"]["homeScoreTotal"] == nil
                 return "Game has not started."
             elsif game["score"]["awayScoreTotal"] > game["score"]["homeScoreTotal"]

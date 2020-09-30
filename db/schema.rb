@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_07_28_160006) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "games", force: :cascade do |t|
     t.integer "home_team_id"
     t.integer "away_team_id"
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 2020_07_28_160006) do
   end
 
   create_table "picks", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "team_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
     t.boolean "buy_in", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
