@@ -5,7 +5,7 @@ class PicksController < ApplicationController
 
     def index
         @picks = current_user.picks
-        Game.get_game(@picks)
+        # Game.get_game(@picks)
         if helpers.access?(params) 
             redirect_to user_picks_path(current_user)
         end
