@@ -54,4 +54,4 @@ views to render.
 
 config - Contains configuration files for our Rails application and for our database, along with an initializers folder for scripts that get run on boot.
 
-db - Contains the migrations needed to create our database schema.
+db - Contains the migrations needed to create our database schema.# NFL-Pickem-Production
