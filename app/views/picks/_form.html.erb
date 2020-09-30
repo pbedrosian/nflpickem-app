@@ -13,8 +13,10 @@
     </div>
 
     <div class="form-group">
-    <%= f.label :buy_in %><br>
-    <%= f.check_box :buy_in, { checked: false }, true, false  %>
+    <%= f.label :buy_in %>:<br>
+
+
+    <%=f.select :buy_in, [['TRUE', true], ['FALSE', false]]%>
     </div>
     <div class="actions">
     <%= f.submit 'Create Pick', class: 'btn btn-info btn-block my-4'%>
