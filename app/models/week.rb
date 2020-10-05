@@ -11,6 +11,15 @@ class Week < ApplicationRecord
         week[0]
     end
 
+    def self.current_week_pick
+        week = Week.all.select do |w| 
+            if Time.now.between?(w.start_of_week.to_time, w.end_of_week.to_time)
+                w.id
+            end
+        end
+        week[0]
+    end
+
     def days_played
         days = self.games.map do |g|
             g.date.to_time.strftime('%A')
